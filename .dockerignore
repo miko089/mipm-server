@@ -1,0 +1,5 @@
+.idea
+Dockerfile*
+README.md
+docker-compose*
+.gitignore

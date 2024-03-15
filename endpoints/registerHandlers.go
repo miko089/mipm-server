@@ -8,6 +8,6 @@ import (
 func RegisterHandlers(app *fiber.App) {
 	app.Get("/ping", handlers.PingHandler)
 	pkgs := app.Group("/pkgs")
-	pkgs.Post("/upload")
-
+	pkgs.Post("/upload", handlers.UploadFile)
+	pkgs.Get("/get", handlers.GetFile)
 }

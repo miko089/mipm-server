@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  backend:
+    build: .
+    restart: on-failure
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      POSTGRES_DB: "mipm"
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "nyameowmeow"
+      DB_HOSTNAME: db
+    depends_on:
+      - db
+    volumes:
+      - ./filestorage:/runner/storage
+  db:
+    image: postgres:13.3
+    volumes:
+      - ./db/:/var/lib/postgresql
+    environment:
+      POSTGRES_DB: "mipm"
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "nyameowmeow"
