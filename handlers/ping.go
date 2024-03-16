@@ -6,6 +6,6 @@ import (
 )
 
 func PingHandler(c *fiber.Ctx) error {
-	log.Infof("ping from {%s}", c.IP())
+	log.Infof("ping from %s", c.IP())
 	return c.SendString("pong")
 }
